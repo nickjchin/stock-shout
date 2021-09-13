@@ -2,17 +2,20 @@
     {
         "username": "Nick",
         "email": "nick@email.com",
-        "password": "abc123"
+        "password": "abc123",
+        "stocks": "aapl"
 
     },
     {
         "username": "Masud",
         "email": "masud@email.com",
-        "password": "password"
+        "password": "password",
+        "stocks": "amzn"
     },
     {
         "username": "Mike",
         "email": "mike@email.com",
-        "password": "pass123"
+        "password": "pass123",
+        "stocks": "msft"
     }
 ]
