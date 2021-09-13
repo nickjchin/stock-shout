@@ -1,0 +1,15 @@
+[
+    {
+        "table_id": 1,
+        "stock": "aapl"
+        
+    },
+    {
+        "table_id": 2,
+        "stock": "amzn"
+    },
+    {
+        "table_id": 1,
+        "stock": "msft"
+    }
+]
