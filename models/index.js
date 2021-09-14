@@ -1,8 +1,9 @@
 const User = require("./User");
-const Stock = require("./Stock");
+const Watchlist = require("./Watchlist");
 
-User.hasMany(Stock, {
-  foreignKey: "",
+User.hasOne(Watchlist, {
+  foreignKey: "user_id",
+  onDelete: 'Cascade'
 });
 
-module.exports = { User, Stock };
+module.exports = { User, Watchlist };
