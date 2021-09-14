@@ -6,4 +6,9 @@ User.hasOne(Watchlist, {
   onDelete: 'Cascade'
 });
 
+Watchlist.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+
 module.exports = { User, Watchlist };
