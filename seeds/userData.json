@@ -3,8 +3,7 @@
         "id": 1,
         "name": "Nick",
         "email": "nick@email.com",
-        "password": "abc123",
-        "user_stocks": ,
+        "password": "abc123"
     },
     {
         "id": 2,

@@ -5,10 +5,8 @@ class Watchlist extends Model {}
 
 Watchlist.init(
   {
-    id:{},
-
     stocks: {
-      type: DataTypes.Array,
+      type: DataTypes.ARRAY(DataTypes.STRING)
       },
 
     user_id:{
