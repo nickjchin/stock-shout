@@ -15,7 +15,6 @@ const seedDatabase = async () => {
   for (const watchlist of watchlistSeedData) {
    await Watchlist.create({
       ...watchlist,
-      // Attach a random driver ID to each car
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
