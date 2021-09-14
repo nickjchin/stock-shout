@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="../../public/css/style.css" />
     <title>Stock Shout</title>
   </head>
   <body>
@@ -21,8 +21,8 @@
         </div>
         <div class="row">
           <div class="col-12 d-flex flex-row justify-content-end mt-">
-            <button class="btn btn-secondary mr-2">Login</button>
-            <button class="btn btn-secondary">Sign up</button>
+            <button id="login" class="btn btn-secondary mr-2">Login</button>
+            <button id="sign-up" class="btn btn-secondary">Sign up</button>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
                 id="tweets"
               />
             </div>
-            <button type="submit" class="btn btn-success">
+            <button id="submit" type="submit" class="btn btn-success">
               Search
             </button>
           </form>
