@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { User, Watchlist } = require('../../models');
+const { watch } = require('fs');
+const { User } = require('../../models');
 
-
+// get one specific user
 router.get('/:id', async (req, res) => {
     try {
       const userData = await User.findByPk(req.params.id, {
@@ -19,13 +20,23 @@ router.get('/:id', async (req, res) => {
     }
   });
 
-  const router = require('express').Router();
-const { User } = require('../../models');
+  // GET all users
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      include: [{ model: Watchlist}],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
