@@ -1,4 +1,23 @@
-const sequelize = require("../config/connection");
-const { User } = require("../models");
+const sequelize = require('../config/connection');
+const { User, Watchlist} = require('../models');
 
-const userData = require("./userData.json");
+const userSeedData = require('./userData.json');
+const watchlistSeedData = require('./watchlistData.json');
+
+const seedDatabase = async () => {
+  await sequelize.sync({ force: true });
+
+  const users = await User.bulkCreate(userSeedData);
+
+  for (const watchlist of watchlistSeedData) {
+    const newWatchlist = await Watchlist.create({
+      ...watchlist,
+      // Attach a random driver ID to each car
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
+  process.exit(0);
+};
+
+seedDatabase();

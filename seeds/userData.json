@@ -10,14 +10,12 @@
         "id": 2,
         "name": "Masud",
         "email": "masud@email.com",
-        "password": "password",
-        "user_stocks": ,
+        "password": "password"
     },
     {
         "id": 3,
         "name": "Mike",
         "email": "mike@email.com",
-        "password": "pass123",
-        "user_stocks": ,
+        "password": "pass123"
     }
 ]

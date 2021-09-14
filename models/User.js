@@ -32,14 +32,8 @@ User.init(
       validate: {
         len: [8],
       },
-    user_stocks: {
-        type: DataTypes.STRING,
-        validate: {
-            isAlphanumeric: true,
-          },
-        },
+    },
     },   
-  },
   {
     sequelize,
     timestamps: false,
