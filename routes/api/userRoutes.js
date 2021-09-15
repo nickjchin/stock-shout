@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { watch } = require('fs');
+// const { watch } = require('fs');
 const { User } = require('../../models');
 
 // get one specific user
