@@ -19,5 +19,13 @@
     "handlebars": "^4.7.6",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickjchin/stock-shout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nickjchin/stock-shout/issues"
+  },
+  "homepage": "https://github.com/nickjchin/stock-shout#readme"
 }
