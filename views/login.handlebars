@@ -1,99 +1,23 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="Description" content="Enter your description here" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="../../public/css/style.css" />
-    <title>Stock Shout</title>
-  </head>
-  <body>
-    <div class="container-fluid">
+<div class="row">
+  <div class="col-12">
+    <h2 class="font-weight-bold">Login</h2>
+  </div>
+</div>
 
-      <div class="jumbotron">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="display-2 text-center font-weight-normal">Stock Shout</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 d-flex flex-row justify-content-end">
-            <button id="login" class="btn btn-secondary mr-2">Log Out</button>
-          </div>
-        </div>
+<div class="row">
+  <div class="col-6">
+    <form class="form">
+      <div class="form-group">
+        <label for="email-login">Email: </label>
+        <input type="email" class="form-control" id="email-login" placeholder="example@gmail.com" />
       </div>
-
-      <div class="row">
-        <div class="col-12">
-          <form class="form-inline">
-            <div class="form-group">
-              <input
-                placeholder="Enter a stock symbol"
-                type="stock"
-                class="form-control mr-2"
-                id="stock"
-              />
-            </div>
-            <div class="form-group">
-              <label for="tweets"></label>
-              <input
-                id="entersymbol"
-                placeholder="Enter a stock symbol to see the latest tweets and financial info!"
-                type="tweets"
-                class="form-control mr-2"
-                id="tweets"
-              />
-            </div>
-            <button id="submit" type="submit" class="btn btn-success">
-              Search
-            </button>
-          </form>
-        </div>
+      <div class="form-group">
+        <label for="passsword-login">Password: </label>
+        <input type="password" class="form-control" id="password-login" />
       </div>
-
-      <div class="row">
-        <div class="col-12">
-          <h2 class="font-weight-bold">Login</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <form class="form">
-            <div class="form-group">
-              <label for="email-login">Email: </label>
-              <input
-                type="email"
-                class="form-control"
-                id="email-login"
-                placeholder="example@gmail.com"
-              />
-            </div>
-            <div class="form-group">
-              <label for="passsword-login">Password: </label>
-              <input type="password" class="form-control" id="password-login" />
-            </div>
-            <button id="login-submit" type="submit" class="btn btn-primary">Login</button>
-          </form>
-        </div>
-      </div>
-
-    </div>
-
-    <script>
-      var input = document.querySelectorAll('input'); for(i=0; i<input.length; i++){
-      input[i].setAttribute('size',input[i].getAttribute('placeholder').length); }
-    </script>
-  </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
-  ></script>
-</html>
+      <button id="login-submit" type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
 
 <script src="../public/js/login.js"></script>
