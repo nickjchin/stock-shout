@@ -77,6 +77,7 @@ router.post('/login', async (req, res) => {
         email: req.body.email,
       },
     });
+    console.log(userData)
 
     if (!userData) {
       res
@@ -84,22 +85,26 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-
+    console.log('user ok!')
     const validPassword = await userData.checkPassword(req.body.password);
-
+    console.log(validPassword);
     if (!validPassword) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-
+    console.log('password ok!')
     req.session.save(() => {
       req.session.loggedIn = true;
-
-      res
-        .status(200)
-        .json({ user: userData, message: 'You are now logged in!' });
+      console.log(req.session.loggedIn);
+      // res
+      //   .status(200)
+      //   .json({ user: userData, message: 'You are now logged in!' });
+      res.render('profile', {
+        users:userData.get({plain:true}),
+        logged_in: req.session.logged_in,
+      });
     });
   } catch (err) {
     console.log(err);

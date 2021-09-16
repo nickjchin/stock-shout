@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/profile', withAuth, async (req, res) => {
+  console.log("profile page")
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
@@ -16,7 +17,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const users = userData.map((project) => project.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('profile', {
       users,
       logged_in: req.session.logged_in,
     });
