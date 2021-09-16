@@ -4,7 +4,7 @@ const stockSearchFormHandler = async (event) => {
   const stock = document.querySelector("#entersymbol").value.trim();
 
 //   if (stock) {
-//     const response = await fetch("/api/users/login", {
+//     const response = await fetch("", {
 //       method: "POST",
 //       body: JSON.stringify({ stock }),
 //       headers: { "Content-Type": "application/json" },
@@ -30,9 +30,6 @@ const signUpHandler = async (event) => {
   document.location.replace("signup");
 };
 
-document
-  .querySelector("#submit")
-  .addEventListener("submit", stockSearchFormHandler);
 document
   .querySelector("#login")
   .addEventListener("click", loginHandler);

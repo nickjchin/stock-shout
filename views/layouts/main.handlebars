@@ -21,16 +21,16 @@
         <div class="row">
           <div class="col-12 d-flex flex-row justify-content-end">
             {{#if logged_in}}
+              <button id="logout">Logout</button>
+            {{else}}
               <button id="login" class="btn btn-secondary mr-2">Login</button>
               <button id="sign-up" class="btn btn-secondary">Sign up</button>
-            {{else}}
-              <button>Logout</button>
             {{/if}}
           </div>
         </div>
       </div>
 
-      <div class="row">
+      {{!-- <div class="row">
         <div class="col-12">
           <form class="form-inline">
             <div class="form-group">
@@ -56,16 +56,16 @@
             </button>
           </form>
         </div>
-      </div>
+      </div> --}}
 
       {{{body}}}
 
-   
-      
     </div>
 
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
+    {{else}}
+      <script src="/js/main.js"><</script>
     {{/if}}
 
   </body>
