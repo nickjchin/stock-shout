@@ -36,3 +36,4 @@ document
 document
   .querySelector("#sign-up")
   .addEventListener("click", signUpHandler);
+

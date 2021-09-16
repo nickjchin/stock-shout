@@ -23,4 +23,4 @@ function displayWatchlist(profile) {
           watchlist.append(gameTitle);
           gameTitle.append(stockLogo);
           gameTitle.append(stock);
-        
+        }
