@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { User, Watchlist } = require('../../models');
+const { User, UserStock } = require('../../models');
 
 
  // GET all users
  router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({
-      include: [{ model: Watchlist}],
+      include: [{ model: UserStock}],
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -19,7 +19,7 @@ const { User, Watchlist } = require('../../models');
 router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
-      include: [{ model: Watchlist }],
+      include: [{ model: UserStock }],
     });
 
     if (!userData) {
@@ -77,7 +77,7 @@ router.post('/login', async (req, res) => {
         email: req.body.email,
       },
     });
-    console.log(userData)
+    console.log(userData);
 
     if (!userData) {
       res
@@ -96,8 +96,10 @@ router.post('/login', async (req, res) => {
     }
     console.log('password ok!')
     req.session.save(() => {
+      req.session.user_id = userData.id;
+      console.log(userData.id);
       req.session.logged_in = true;
-      console.log(req.session.logged_in);
+      console.log ('is logged in:', req.session.logged_in);
       res
         .status(200)
         .json({ user: userData, message: 'You are now logged in!' });

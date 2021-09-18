@@ -20,13 +20,13 @@ const stockSearchFormHandler = async (event) => {
 
 const loginHandler = async (event) => {
   event.preventDefault();
-  console.log('Log in!');
+ // console.log('Log in!');
   document.location.replace("login");
 };
 
 const signUpHandler = async (event) => {
   event.preventDefault();
-  console.log('Sign up!');
+  //console.log('Sign up!');
   document.location.replace("signup");
 };
 
