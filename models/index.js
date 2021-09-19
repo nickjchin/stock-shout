@@ -1,14 +1,19 @@
 const User = require("./User");
-const Watchlist = require("./Watchlist");
+const UserStock = require("./UserStock");
+const Stock = require("./Stock")
 
-User.hasOne(Watchlist, {
+User.hasMany(UserStock, {
   foreignKey: "user_id",
   onDelete: 'Cascade'
 });
 
-Watchlist.belongsTo(User, {
-  foreignKey: 'user_id'
+UserStock.belongsTo(User, {
+  foreignKey: 'user_id',
+  foreignKey: 'stock_id'
 });
 
-
-module.exports = { User, Watchlist };
+Stock.hasMany(UserStock,{
+  foreignKey: "stock_id",
+  onDelete: 'Cascade'
+})
+module.exports = { User, UserStock, Stock };

@@ -1,8 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Watchlist } = require('../models');
+const { User, Stock , UserStock} = require('../models');
 
 const userSeedData = require('./userData.json');
-const watchlistSeedData = require('./watchlistData.json');
+const userStockSeedData = require('./userStockData.json');
+const stockSeedData = require('./nyse-listed.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -10,14 +11,18 @@ const seedDatabase = async () => {
   const users = await User.bulkCreate(userSeedData, {
     individualHooks: true,
     returning: true,
-  });
+  })
 
-  for (const watchlist of watchlistSeedData) {
-   await Watchlist.create({
-      ...watchlist,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  const stocks = await Stock.bulkCreate(stockSeedData);
+  
+  for (const userStock of userStockSeedData) {
+    await UserStock.create({
+       ...userStock,
+       user_id: users[Math.floor(Math.random() * users.length)].id,
+       stock_id: stocks[Math.floor(Math.random() * stocks.length)].id,
+     });
+   };
+ 
 
   process.exit(0);
 };
