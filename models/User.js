@@ -16,12 +16,19 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+     firstname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isAlphanumeric: true,
       },
+    },
+      lastname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isAlphanumeric: true,
+        },
     },
     email: {
       type: DataTypes.STRING,
@@ -37,8 +44,8 @@ User.init(
       validate: {
         len: [8],
       },
-    },
     },  
+  },
   {
       hooks: {
         beforeCreate: async (newUserData) => {

@@ -1,24 +1,22 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
 
-class Watchlist extends Model {}
+class UserStock extends Model {}
 
-Watchlist.init(
+UserStock.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    stocks: {
-      type: DataTypes.TEXT,
-      },
-
+    
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    stock_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'stock',
         key: 'id',
       },
     },
@@ -28,8 +26,8 @@ Watchlist.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "watchlist",
+    modelName: "userstock",
   }
 );
 
-module.exports = Watchlist;
+module.exports = UserStock;
