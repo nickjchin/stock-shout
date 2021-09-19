@@ -1,14 +1,16 @@
+
+
 const searchFormHandler = async (event) => {
     event.preventDefault();
   
-    const symbol = document.querySelector('#entersymbol').value.trim();
+    const symbol = document.querySelector('#entersymbol').value.trim().toUpperCase();
     console.log(symbol);
     
   
     if (symbol) {
-      const response = await fetch(`/api/stocks/${symbol}`, {
-        method: 'POST',
-        body: JSON.stringify({ symbol }),
+  
+      const response = await fetch(`/api/stocks/bySymbol/${symbol}`, {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
 
@@ -35,7 +37,7 @@ const searchFormHandler = async (event) => {
 
       console.log(stock_id);
   
-      const response = await fetch(`/api/stocks/${stock_id}`, {
+      const response = await fetch(`/api/stocks/byId/${stock_id}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });

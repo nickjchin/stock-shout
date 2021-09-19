@@ -20,7 +20,6 @@ const backButtonHandler = async (event) => {
     
     const response = await fetch('/api/stocks/', {
       method: 'DELETE',
-      body: JSON.stringify({ user_id, stock_id }),
       headers: { 'Content-Type': 'application/json' },
     });
    

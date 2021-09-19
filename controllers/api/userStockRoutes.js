@@ -14,11 +14,34 @@ const { UserStock, Stock } = require('../../models');
   }
 });
 
-// get one specific stock info
-router.get('/:id', async (req, res) => {
+// get one specific stock info by stock_id
+router.get('/byId/:id', async (req, res) => {
   try {
     const stockData = await Stock.findByPk(req.params.id, {
   
+    });
+
+    if (!stockData) {
+      res.status(404).json({ message: 'No stock found with that id!' });
+      return;
+    }
+    req.session.save(() => {
+      req.session.stock_id = stockData.id;
+
+    res.status(200).json(stockData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+//get one specific stock data by act_symbol
+router.get('/bySymbol/:id', async (req, res) => {
+  try {
+    const stockData = await Stock.findOne({
+      where:{
+        act_symbol: req.params.id,
+      }  
     });
 
     if (!stockData) {
@@ -41,7 +64,7 @@ router.post('/', async (req, res) => {
   try {
     const userStockData = await UserStock.create({
       user_id: req.session.user_id,
-      stock_id: req.session.stock_symbol,
+      stock_id: req.session.stock_id,
     });
 
     req.session.save(() => {
@@ -56,12 +79,12 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE a stock watchlist entry
-router.delete('/:id', (req, res) => {
+router.delete('/', (req, res) => {
   // Looks for the watchlist based on id given in the request parameters and deletes the instance from the database
   UserStock.destroy({
     where: {
       user_id: req.session.user_id,
-      stock_id: req.params.id,
+      stock_id: req.session.stock_id,
     },
   })
     .then((deletedUserStock) => {
