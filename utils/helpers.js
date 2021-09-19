@@ -1,4 +1,8 @@
 module.exports ={
+    get_stockSymbol: {
+
+    },
+
     get_tweet_count: (symbol) =>{
         var Twitter = require("twitter");
         require("dotenv").config();
