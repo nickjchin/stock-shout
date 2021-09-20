@@ -12,6 +12,7 @@ Stock.init(
       autoIncrement: true,
     },
     act_symbol: {
+      
       type: DataTypes.STRING,
     },
     company_name:{

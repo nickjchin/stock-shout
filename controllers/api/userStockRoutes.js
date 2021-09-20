@@ -1,51 +1,76 @@
 const router = require('express').Router();
-const { UserStock, Stocks } = require('../../models');
+const { UserStock, Stock } = require('../../models');
 
 
- // GET all watchlists
+ // GET all stocks
  router.get('/', async (req, res) => {
   try {
-    const userStockData = await UserStock.findAll({
-      include: [{ model: Stocks}],
-    });
-    res.status(200).json(watchlistData);
+    const stockData = await Stock.findAll();
+    
+    res.status(200).json(stockData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// get one specific watchlist
-router.get('/:id', async (req, res) => {
+// get one specific stock info by stock_id
+router.get('/byId/:id', async (req, res) => {
   try {
-    const stock = await Stock.findByPk(req.params.id, {
-      include: [{ model: Stocks }],
+    const stockData = await Stock.findByPk(req.params.id, {
+  
     });
 
-    if (!watchlistData) {
-      res.status(404).json({ message: 'No watchlist found with that id!' });
+    if (!stockData) {
+      res.status(404).json({ message: 'No stock found with that id!' });
       return;
     }
+    req.session.save(() => {
+      req.session.stock_id = stockData.id;
 
-    res.status(200).json(watchlistData);
+    res.status(200).json(stockData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+//get one specific stock data by act_symbol
+router.get('/bySymbol/:id', async (req, res) => {
+  try {
+    const stockData = await Stock.findOne({
+      where:{
+        act_symbol: req.params.id,
+      }  
+    });
+
+    if (!stockData) {
+      res.status(404).json({ message: 'No stock found with that id!' });
+      return;
+    }
+    req.session.save(() => {
+      req.session.stock_id = stockData.id;
+
+    res.status(200).json(stockData);
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-//CREATE new watchlist
+//CREATE new stock watchlist entry
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create({
-      name: req.body.name,
-      email: req.body.email,
+    const userStockData = await UserStock.create({
+      user_id: req.session.user_id,
+      stock_id: req.session.stock_id,
     });
 
     req.session.save(() => {
-      req.session.logged_in = false;
+      req.session.logged_in = true;
 
-      res.status(200).json(userData);
+      res.status(200).json(userStockData);
     });
   } catch (err) {
     console.log(err);
@@ -53,16 +78,17 @@ router.post('/', async (req, res) => {
   }
 });
 
-// DELETE a watchlist
-router.delete('/:id', (req, res) => {
+// DELETE a stock watchlist entry
+router.delete('/', (req, res) => {
   // Looks for the watchlist based on id given in the request parameters and deletes the instance from the database
-  Watchlist.destroy({
+  UserStock.destroy({
     where: {
-      id: req.params.id,
+      user_id: req.session.user_id,
+      stock_id: req.session.stock_id,
     },
   })
-    .then((deletedWatchlist) => {
-      res.json(deletedWatchlist);
+    .then((deletedUserStock) => {
+      res.json(deletedUserStock);
     })
     .catch((err) => res.json(err));
     console.log(err);
