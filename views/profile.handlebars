@@ -12,75 +12,20 @@
           type="tweets"
           class="form-control mr-2"
         />
-      </div>
-<div class="row" >
-    <div class="col-2 stock-watchlist">
-        <h4>My Watchlist</h4>
-        {{#each userstocks as |userstock| }}
-            <li><button class= {{userstock.stock_id}}>{{userstock.stock_id}}</button></li>
-        {{/each}}
      </div>
-    <div class="col-5">
-     <!-- TradingView Widget BEGIN -->
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/indices/" rel="noopener" target="_blank">
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-        {
-        "width": 770,
-        "height": 450,
-        "symbolsGroups": [
-          {
-            "name": "Indices",
-            "originalName": "Indices",
-            "symbols": [
-              {
-                "name": "FOREXCOM:SPXUSD",
-                "displayName": "S&P 500"
-              },
-              {
-                "name": "FOREXCOM:NSXUSD",
-                "displayName": "Nasdaq 100"
-              },
-              {
-                "name": "FOREXCOM:DJI",
-                "displayName": "Dow 30"
-              },
-              {
-                "name": "INDEX:NKY",
-                "displayName": "Nikkei 225"
-              },
-              {
-                "name": "INDEX:DEU30",
-                "displayName": "DAX Index"
-              },
-              {
-                "name": "FOREXCOM:UKXGBP",
-                "displayName": "UK 100"
-              }
-            ]
-          }
-        ],
-        "showSymbolLogo": true,
-        "colorTheme": "dark",
-        "isTransparent": false,
-        "locale": "en"
-      }
-        </script>
-      </div>
-  <!-- TradingView Widget END -->
-    </div>
-    </div>
-    <div class="col-5">
+      <button id="submit" type="submit" class="btn btn-success">
+        Search
+      </button>
+    </form>
+  </div>
+</div>
 
 <div class="row px-5">
   <div class="col-2">
     <h4>My Watchlist</h4>
-    <div class="list-group">
+    <div class="list-group stock-watchlist ">
       {{#each userstocks as |userstock|}}
-        {{!-- <li class="list-group-item"><button class="btn btn-secondary">{{userstock.stock_id}}</button></li> --}}
-        <a href="" class="list-group-item list-group-item-action">{{userstock.stock_id}}</a>
-        <a href="" class="list-group-item list-group-item-action">{{userstock.stock_id}}</a>
+        <li class="list-group-item"><button class={{userstock.stock_id}}>{{userstock.stock_id}}</button></li>
       {{/each}}
     </div>
   </div>
