@@ -7,6 +7,6 @@ var client = new Twitter({
   bearer_token: process.env.TWITTER_BEARER_TOKEN,
 });
 
-client.get("search/tweets", { q: "gme", count: 30 }, function (error, tweets, response) {
+client.get("search/tweets/recent", { q: "gme", count: 30 }, function (error, tweets, response) {
   console.log(tweets);
 });
