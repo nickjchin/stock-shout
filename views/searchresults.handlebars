@@ -1,49 +1,49 @@
-
-        <div class="col-6 h-100">
-                <h1>{{company_name}}</h1>
-          <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
-                <div id="tradingview_db431"></div>
-                <div class="tradingview-widget-copyright">
-                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                <script type="text/javascript">
-                new TradingView.MediumWidget(
-                {
-                "symbols": [
-                    [
-                    `{{act_symbol}}`
-                    ]
-                ],
-                "chartOnly": false,
-                "width": "100%",
-                "height": "100%",
-                "locale": "en",
-                "colorTheme": "dark",
-                "gridLineColor": "rgba(240, 243, 250, 0)",
-                "fontColor": "#787B86",
-                "isTransparent": false,
-                "autosize": true,
-                "showFloatingTooltip": true,
-                "scalePosition": "no",
-                "scaleMode": "Normal",
-                "fontFamily": "Trebuchet MS, sans-serif",
-                "noTimeScale": false,
-                "chartType": "area",
-                "lineColor": "#2962FF",
-                "bottomColor": "rgba(41, 98, 255, 0)",
-                "topColor": "rgba(41, 98, 255, 0.3)",
-                "container_id": "tradingview_db431"
-                }
-                );
-                </script>
-                </div>
-                <!-- TradingView Widget END -->
-        </div>
-        <div class = "col-6 h-100">
-        <div class="col-12">
-            <button class="btn btn-success add" > Add to Watchlist</button>
-            <button class="btn btn-success ml-2 delete" > Delete from Watchlist</button>
-            <button class="btn btn-success ml-2 back" > Back</button>
-        </div>
+<div class="col-6 h-100">
+  <h1>{{company_name}}</h1>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div id="tradingview_db431"></div>
+    <div class="tradingview-widget-copyright">
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+        new TradingView.MediumWidget( { "symbols": [ [ `{{act_symbol}}` ] ], "chartOnly": false,
+        "width": "100%", "height": "100%", "locale": "en", "colorTheme": "dark", "gridLineColor":
+        "rgba(240, 243, 250, 0)", "fontColor": "#787B86", "isTransparent": false, "autosize": true,
+        "showFloatingTooltip": true, "scalePosition": "no", "scaleMode": "Normal", "fontFamily":
+        "Trebuchet MS, sans-serif", "noTimeScale": false, "chartType": "area", "lineColor":
+        "#2962FF", "bottomColor": "rgba(41, 98, 255, 0)", "topColor": "rgba(41, 98, 255, 0.3)",
+        "container_id": "tradingview_db431" } );
+      </script>
     </div>
-    <script src="/js/searchresults.js"></script>
+    <!-- TradingView Widget END -->
+  </div>
+</div>
+<div class="col-6 h-100">
+  <div class="" id="tweetStream"></div>
+</div>
+
+<div class="col-12">
+  <button class="btn btn-success add"> Add to Watchlist</button>
+  <button class="btn btn-success ml-2 delete"> Delete from Watchlist</button>
+  <button class="btn btn-success ml-2 back"> Back</button>
+</div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"
+  integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ=="
+  crossorigin="anonymous"
+></script>
+
+<script>
+  const tweetStream = document.getElementById('tweetStream') const socket = io() const tweets = []
+  socket.on('connect', () => { console.log('Connected to server...') }) socket.on('tweet', (tweet)
+  => { // console.log(tweet) const tweetData = { id: tweet.data.id, text: tweet.data.text, username:
+  `@${tweet.includes.users[0].username}`, } const tweetEl = document.createElement('div')
+  tweetEl.className = 'card my-5' tweetEl.innerHTML = ` <div class="card-body"> <h5
+  class="card-title">${tweetData.text}</h5> <h6 class="card-subtitle mb-2
+  text-muted">${tweetData.username}</h6> <a class="btn btn-primary mt-3"
+  href="https://twitter.com/${tweetData.username}/status/${tweetData.id}"> Go To Tweet </a> </div> `
+  tweetStream.appendChild(tweetEl) // setTimeout(() => tweetEl.remove(), 5000) })
+</script>
+
+<script src="/js/searchresults.js"></script>
