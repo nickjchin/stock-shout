@@ -1,7 +1,16 @@
 module.exports ={
-    get_stockSymbol: {
-
-    },
+    get_stock_symbol: (stock_Id) => {
+        const response = fetch(`/api/stocks/byId/${stock_Id}`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            var stock_symbol = response.act_symbol;
+            return stock_symbol;
+        }else {
+            alert('Failed to find Stock!');
+          }
+      },
 
     get_tweet_count: (symbol) =>{
         var Twitter = require("twitter");
