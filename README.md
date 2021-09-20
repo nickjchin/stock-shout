@@ -64,6 +64,10 @@ localhost:3001/
 
 ![homepage](/public/img/main.PNG)
 
+### Sign Up
+
+![signup](/public/img/signup.PNG)
+
 ### Login Page
 
 ![login](/public/img/login.PNG)
