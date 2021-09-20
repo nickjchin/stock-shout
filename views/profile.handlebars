@@ -23,10 +23,10 @@
 <div class="row px-5">
   <div class="col-2">
     <h4>My Watchlist</h4>
-    <div class="stock-watchlist">
-      {{#each userstocks as |userstock|}}
-        <button class={{userstock.stock_id}}>{{userstock.stock_id}}</button>
 
+    <div class=stock-watchlist>
+      {{#each userstocks as |userstock|}}
+        <button class={{userstock.stock_id}}>{{userstock.stock_symbol}}</button>
       {{/each}}
     </div>
   </div>

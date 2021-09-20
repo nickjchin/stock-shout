@@ -16,10 +16,11 @@
   background-image: none;
   border: 1px solid transparent;
   color: white;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #6C757D;
+  border-color: #6C757D;
   margin-top: 5px;
 }
 .stock-watchlist button:hover {
   box-shadow: 2px 2px 2px gray;
 }
+
