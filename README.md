@@ -60,7 +60,17 @@ localhost:3001/
 
 ## Demo
 
-[View Demo on Youtube]()
+### Landing Page
+
+![homepage](/public/img/main.PNG)
+
+### Login Page
+
+![login](/public/img/login.PNG)
+
+### Profile
+
+![profile](/public/img/profile.PNG)
 
 ## Contributors
 
