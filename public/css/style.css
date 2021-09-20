@@ -3,3 +3,23 @@
   border-radius: 0;
   color: white;
 }
+.stock-watchlist button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  border-radius: 4px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  color: white;
+  background-color: #6C757D;
+  border-color: #6C757D;
+  margin-top: 5px;
+}
+.stock-watchlist button:hover {
+  box-shadow: 2px 2px 2px gray;
+}
