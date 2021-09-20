@@ -1,120 +1,59 @@
-<h2>Welcome, {{firstname}} {{lastname}}!</h2>
-<div class="row">
-        <div class="col-12">
-          <form class="form-inline search-form">
-            <div class="form-group">
-              <label for="tweets"></label>
-              <input
-                id="entersymbol"
-                placeholder="Enter a stock symbol to see the latest tweets and financial info!"
-                type="tweets"
-                class="form-control mr-2 w-"
-              />
-            </div>
-            <button id="submit" type="submit" class="btn btn-success">
-              Search
-            </button>
-          </form>
-        </div>
+<div class="row px-5">
+  <div class="col-2">
+    <h2>Welcome, {{firstname}} {{lastname}}!</h2>
+  </div>
+  <div class="col-10">
+    <form class="form-inline search-form">
+      <div class="form-group">
+        <label for="tweets"></label>
+        <input
+          id="entersymbol"
+          placeholder="Enter a stock symbol to see the latest tweets and financial info!"
+          type="tweets"
+          class="form-control mr-2"
+        />
       </div>
-<div class="row" >
-    <div class="col-2">
-        <h4>My Watchlist</h4>
-        {{#each userstocks as |userstock| }}
-            <li><button>{{userstock.stock_id}}</button></li>
-        {{/each}}
-     </div>
-    <div class="col-5">
-     <!-- TradingView Widget BEGIN -->
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/indices/" rel="noopener" target="_blank">
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-        {
-        "width": 770,
-        "height": 450,
-        "symbolsGroups": [
-          {
-            "name": "Indices",
-            "originalName": "Indices",
-            "symbols": [
-              {
-                "name": "FOREXCOM:SPXUSD",
-                "displayName": "S&P 500"
-              },
-              {
-                "name": "FOREXCOM:NSXUSD",
-                "displayName": "Nasdaq 100"
-              },
-              {
-                "name": "FOREXCOM:DJI",
-                "displayName": "Dow 30"
-              },
-              {
-                "name": "INDEX:NKY",
-                "displayName": "Nikkei 225"
-              },
-              {
-                "name": "INDEX:DEU30",
-                "displayName": "DAX Index"
-              },
-              {
-                "name": "FOREXCOM:UKXGBP",
-                "displayName": "UK 100"
-              }
-            ]
-          }
-        ],
-        "showSymbolLogo": true,
-        "colorTheme": "dark",
-        "isTransparent": false,
-        "locale": "en"
-      }
-        </script>
-      </div>
-  <!-- TradingView Widget END -->
-    </div>
-    </div>
-    <div class="col-5">
-        <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container">
-            <div id="tradingview_08cfd"></div>
-            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/MSFT/" rel="noopener" target="_blank">
-            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-            <script type="text/javascript">
-            new TradingView.MediumWidget(
-            {
-              +
-            "symbols": [
-              [
-                'Microsoft'
-                "MSFT"
-              ]
-            ],
-            "chartOnly": false,
-            "width": 1000,
-            "height": 400,
-            "locale": "en",
-            "colorTheme": "dark",
-            "gridLineColor": "rgba(240, 243, 250, 0)",
-            "fontColor": "#787B86",
-            "isTransparent": false,
-            "autosize": false,
-            "showFloatingTooltip": true,
-            "scalePosition": "no",
-            "scaleMode": "Normal",
-            "fontFamily": "Trebuchet MS, sans-serif",
-            "noTimeScale": false,
-            "chartType": "area",
-            "lineColor": "#2962FF",
-            "bottomColor": "rgba(41, 98, 255, 0)",
-            "topColor": "rgba(41, 98, 255, 0.3)",
-            "container_id": "tradingview_08cfd"
-          }
-            );
-            </script>
-          </div>
+      <button id="submit" type="submit" class="btn btn-success">
+        Search
+      </button>
+    </form>
+  </div>
+</div>
 
+<div class="row px-5">
+  <div class="col-2">
+    <h4>My Watchlist</h4>
+    <div class="list-group">
+      {{#each userstocks as |userstock|}}
+        {{!-- <li class="list-group-item"><button class="btn btn-secondary">{{userstock.stock_id}}</button></li> --}}
+        <a href="" class="list-group-item list-group-item-action">{{userstock.stock_id}}</a>
+        <a href="" class="list-group-item list-group-item-action">{{userstock.stock_id}}</a>
+      {{/each}}
     </div>
+  </div>
+  <div class="col-10">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a
+          href="https://www.tradingview.com/markets/indices/"
+          rel="noopener"
+          target="_blank"
+        ><span class="blue-text">Indices</span></a>
+        by TradingView</div>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+        async
+      >
+        { "width": "100%", "height": "600", "symbolsGroups": [ { "name": "Indices", "originalName":
+        "Indices", "symbols": [ { "name": "FOREXCOM:SPXUSD", "displayName": "S&P 500" }, { "name":
+        "FOREXCOM:NSXUSD", "displayName": "Nasdaq 100" }, { "name": "FOREXCOM:DJI", "displayName":
+        "Dow 30" }, { "name": "INDEX:NKY", "displayName": "Nikkei 225" }, { "name": "INDEX:DEU30",
+        "displayName": "DAX Index" }, { "name": "FOREXCOM:UKXGBP", "displayName": "UK 100" } ] } ],
+        "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": false, "locale": "en" }
+      </script>
+    </div>
+  </div>
 </div>
 <script src="/js/profile.js"></script>
