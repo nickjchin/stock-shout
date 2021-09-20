@@ -12,7 +12,7 @@
           type="tweets"
           class="form-control mr-2"
         />
-     </div>
+      </div>
       <button id="submit" type="submit" class="btn btn-success">
         Search
       </button>
@@ -23,9 +23,9 @@
 <div class="row px-5">
   <div class="col-2">
     <h4>My Watchlist</h4>
-    <div class="list-group stock-watchlist ">
+    <div class="stock-watchlist">
       {{#each userstocks as |userstock|}}
-        <li class="list-group-item"><button class={{userstock.stock_id}}>{{userstock.stock_id}}</button></li>
+        <button class={{userstock.stock_id}}>{{userstock.stock_id}}</button>
       {{/each}}
     </div>
   </div>
