@@ -12,7 +12,7 @@
           type="tweets"
           class="form-control mr-2"
         />
-     </div>
+      </div>
       <button id="submit" type="submit" class="btn btn-success">
         Search
       </button>
@@ -23,6 +23,7 @@
 <div class="row px-5">
   <div class="col-2">
     <h4>My Watchlist</h4>
+
     <div class=stock-watchlist>
       {{#each userstocks as |userstock|}}
         <button class={{userstock.stock_id}}>{{userstock.stock_symbol}}</button>
