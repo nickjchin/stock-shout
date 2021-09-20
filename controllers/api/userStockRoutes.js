@@ -50,6 +50,7 @@ router.get('/bySymbol/:id', async (req, res) => {
     }
     req.session.save(() => {
       req.session.stock_id = stockData.id;
+      req.session.stock_symbol =stockData.act_symbol;
 
     res.status(200).json(stockData);
     });
@@ -65,6 +66,7 @@ router.post('/', async (req, res) => {
     const userStockData = await UserStock.create({
       user_id: req.session.user_id,
       stock_id: req.session.stock_id,
+      stock_symbol:  req.session.stock_symbol
     });
 
     req.session.save(() => {

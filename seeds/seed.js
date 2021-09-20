@@ -16,10 +16,13 @@ const seedDatabase = async () => {
   const stocks = await Stock.bulkCreate(stockSeedData);
   
   for (const userStock of userStockSeedData) {
-    await UserStock.create({
+    var randNum = Math.floor(Math.random() * stocks.length);
+     await UserStock.create({
        ...userStock,
+      
        user_id: users[Math.floor(Math.random() * users.length)].id,
-       stock_id: stocks[Math.floor(Math.random() * stocks.length)].id,
+       stock_id: stocks[randNum].id,
+       stock_symbol:stocks[randNum].act_symbol
      });
    };
  

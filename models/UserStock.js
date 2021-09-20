@@ -20,13 +20,10 @@ UserStock.init(
         key: 'id',
       },
     },
-    // stock_symbol: {
-    //   type: DataTypes.STRING,
-    //   references:{
-    //     model: 'stock',
-    //     key: 'id',
-    //   },
-    // },
+    stock_symbol: {
+      type: DataTypes.STRING,
+      
+    },
   },
   {
     sequelize,
