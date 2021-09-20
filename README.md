@@ -18,7 +18,7 @@ I shoud to be able to add and delete stocks from my watchlist
 
 ## Installation
 
-The dependencies that this application uses are express, bcrypt, sequelize, dotenv, handlebars, connect-session-sequelize, express-handlebars, express-session and mysql2.
+The dependencies that this application uses are express, bcrypt, sequelize, dotenv, handlebars, connect-session-sequelize, express-handlebars, express-session ,mysql2, needle, and socket.io.
 
 Ensure these are in you package.json upon cloning
 
@@ -60,7 +60,21 @@ localhost:3001/
 
 ## Demo
 
-[View Demo on Youtube]()
+### Landing Page
+
+![homepage](/public/img/main.PNG)
+
+### Sign Up
+
+![signup](/public/img/signup.PNG)
+
+### Login Page
+
+![login](/public/img/login.PNG)
+
+### Profile
+
+![profile](/public/img/profile.PNG)
 
 ## Contributors
 
